@@ -14,7 +14,7 @@
       class="button"
       to="#about"
     >
-      <ButtonText text="Tell Me More" />
+      <ButtonText text="About me" />
     </NuxtLink>
   </div>
 </template>
