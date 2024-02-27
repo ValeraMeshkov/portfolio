@@ -1,2 +1,0 @@
-const t="https://verv.com/verv-app",s="https://bsl.dev",a="https://letit.app/ru",o="https://kit.letit.app",e="https://github.com/ValeraMeshkov/Portfolio",h="https://github.com/ValeraMeshkov/2020_project_vue",E="https://github.com/ValeraMeshkov/TEST_ANDREY_VUE_2",_="https://github.com/ValeraMeshkov/vue-baze/tree/main",c="https://github.com/ValeraMeshkov/vue-test-task-first",T="https://github.com/ValeraMeshkov/Game-on-Js-Canvas";export{a as C,e as P,o as a,s as b,t as c,_ as d,c as e,T as f,E as g,h};
-//# sourceMappingURL=constants.3b767a24.js.map
