@@ -16,6 +16,7 @@ import Projects from '~/pages/main/Projects.vue'
 useHead({
   title: "Valery Meshkov - Frontend Developer",
   meta: [{ name: "description", content: "Frontend Developer" }],
+  link: [{ rel: 'icon', type: 'image/png', href: 'favicon.ico' }],
 });
 </script>
 
