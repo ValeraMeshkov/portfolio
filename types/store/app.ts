@@ -17,7 +17,7 @@ export interface ISettings {
   },
 }
 
-export interface ISkillsIcon {
-  name: string;
-  title: string;
+export interface IStoreApp {
+  mouseCoordinates: IMouseCoordinates;
+  settings: ISettings;
 }

@@ -13,13 +13,6 @@ export default defineNuxtConfig({
       "@fortawesome/free-brands-svg-icons",
     ],
   },
-  components: [
-    '~/components',
-    '~/components/Buttons',
-    '~/components/Images',
-    '~/components/Texts',
-    '~/components/Svgs',
-  ],
   app: {
     baseURL: "/portfolio/",
     buildAssetsDir: 'assets',

@@ -1,19 +1,15 @@
 import { defineStore } from "pinia";
-import {
-  IMouseCoordinates,
-  ISettings,
-  ISkillsIcon
-} from "~/types/StoreApp";
+import { ISettings, IStoreApp } from "~/types/store/app"
 
 export const useAppStore = defineStore({
   id: "app-store",
   state: () => {
-    return {
-      mouseCoordinates: <IMouseCoordinates>{
+    return <IStoreApp>{
+      mouseCoordinates: {
         x: 0,
         y: 0
       },
-      settings: <ISettings>{
+      settings: {
         activeColor: {
           hue: 180,
           saturation: 100,
@@ -26,15 +22,6 @@ export const useAppStore = defineStore({
           size: 15
         },
       },
-      trails: <string[]>['circle', 'square', 'triangle', 'quadrilateral', 'star', 'bubble', 'lock'],
-      skillsIcons: <ISkillsIcon[]>[
-        { name: "vue", title: "Vue" },
-        { name: "js", title: "JavaScript" },
-        { name: "ts", title: "Typescript" },
-        { name: "nuxt", title: "Nuxt" },
-        { name: "sass", title: "Sass" },
-        { name: "node", title: "Node" },
-      ]
     };
   },
   getters: {

@@ -29,7 +29,7 @@
 
     <div class="trails">
       <div
-        v-for="trail, index in app.trails"
+        v-for="trail, index in trails"
         :key="index"
         @click="changeCursorTrail(trail)"
         class="trail"
@@ -81,6 +81,8 @@
 </template>
 
 <script setup lang="ts">
+import { trails } from "~/constants/constants"
+
 import Slider from '@vueform/slider'
 import ColorPicker from '@radial-color-picker/vue-color-picker';
 

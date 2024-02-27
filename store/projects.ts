@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { IProject } from "~~/types/StoreProject";
+import { IStoreProject } from "~/types/store/project";
 
 import {
   PROJECT_PORTFOLIO,
@@ -13,15 +13,15 @@ import {
 export const useProjectsStore = defineStore({
   id: "projects-store",
   state: () => {
-    return {
-      projects: <IProject[]>[
+    return <IStoreProject>{
+      projects: [
         {
           id: 1,
           name: "Portfolio",
           img: "portfolio",
           alt: "portfolio",
           linkCode: PROJECT_PORTFOLIO,
-          technologies: ["Vue 3", "Nuxt 3", "Pinia", "Typescript", "Sass"]
+          technologies: ["Vue 3", "Nuxt 3", "Pinia", "Typescript", "Canvas", "Sass"]
         },
         {
           id: 2,

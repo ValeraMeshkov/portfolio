@@ -46,7 +46,7 @@
 
       <div class="skills">
         <div
-          v-for="skill, index in app.skillsIcons"
+          v-for="skill, index in skillsIcons"
           :key="index"
           class="skill"
         >
@@ -69,10 +69,10 @@
 
 
 <script setup lang="ts">
+import { skillsIcons } from "~/constants/constants"
+
 import { useAppStore } from '~/store/app'
 const app = useAppStore()
-
-
 </script>  
 
 <style lang="scss" scoped>

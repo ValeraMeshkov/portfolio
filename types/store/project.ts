@@ -6,3 +6,7 @@ export interface IProject {
   linkCode: string;
   technologies: string[];
 }
+
+export interface IStoreProject {
+  projects: IProject[]
+}

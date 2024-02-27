@@ -13,3 +13,14 @@ export const PROJECT_REX_STORE: string = 'https://github.com/ValeraMeshkov/TEST_
 export const PROJECT_ANIMATED_LINES: string = 'https://github.com/ValeraMeshkov/vue-baze/tree/main'
 export const PROJECT_HOTEL_RESERVATION: string = 'https://github.com/ValeraMeshkov/vue-test-task-first'
 export const PROJECT_GAME: string = 'https://github.com/ValeraMeshkov/Game-on-Js-Canvas'
+
+export const trails: string[] = ['circle', 'square', 'triangle', 'quadrilateral', 'star', 'bubble', 'lock']
+
+export const skillsIcons: { name: string, title: string }[] = [
+  { name: "vue", title: "Vue" },
+  { name: "js", title: "JavaScript" },
+  { name: "ts", title: "Typescript" },
+  { name: "nuxt", title: "Nuxt" },
+  { name: "sass", title: "Sass" },
+  { name: "node", title: "Node" },
+]

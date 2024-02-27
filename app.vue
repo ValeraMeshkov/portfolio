@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <TheHeader :show-mobile-menu="windowWidth < 600" />
+    <Header :show-mobile-menu="windowWidth < 600" />
 
     <div
       class="content"
@@ -9,7 +9,7 @@
       <NuxtPage />
     </div>
 
-    <TheFooter />
+    <Footer />
 
     <ModalSettings
       v-if="isModalSettings"
@@ -33,7 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import ModalSettings from '~/components/Modals/ModalSettings.vue'
 
 import { useAppStore } from '~/store/app'
 const app = useAppStore()
