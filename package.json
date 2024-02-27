@@ -5,7 +5,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@types/node": "^20.11.15",
@@ -16,6 +17,7 @@
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.21.1",
+    "gh-pages": "^6.1.1",
     "nuxt": "3.0.0",
     "nuxt-svgo": "^4.0.0",
     "prettier": "^3.2.4",
