@@ -1,9 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  router: {
-    base: "/portfolio/"
-  },
   plugins: [
     "plugins/fontawesome.ts",
     "plugins/radialColorPickerPlugin.ts"
@@ -24,6 +21,8 @@ export default defineNuxtConfig({
     '~/components/Svgs',
   ],
   app: {
+    baseURL: "/portfolio/",
+    buildAssetsDir: 'assets',
     head: {
       meta: [
         {

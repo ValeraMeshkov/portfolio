@@ -5,7 +5,7 @@
     class="image-border"
   >
     <div class="img">
-      <img :src="`/_nuxt/assets/images/${img}`" />
+      <img :src="USE_ASSET(img)" />
     </div>
 
     <div
@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { USE_ASSET } from '~/helpers/helpers'
 
 import { useAppStore } from '~/store/app'
 const app = useAppStore()

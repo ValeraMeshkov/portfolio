@@ -51,7 +51,7 @@
           class="skill"
         >
           <ImageBorderText
-            :img="`skills/${skill.name}.png`"
+            :img="`images/skills/${skill.name}.png`"
             :text="skill.title"
           />
         </div>

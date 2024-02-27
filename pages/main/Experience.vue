@@ -18,7 +18,7 @@
           target="_blank"
         >
           <ButtonIcon
-            src="experience/letit.png"
+            src="images/experience/letit.png"
             alt="letit"
             :size="70"
           />
@@ -65,7 +65,7 @@
           target="_blank"
         >
           <ButtonIcon
-            src="experience/bsl.png"
+            src="images/experience/bsl.png"
             alt="bsl"
             :size="70"
           />
@@ -99,7 +99,7 @@
           target="_blank"
         >
           <ButtonIcon
-            src="experience/verv.png"
+            src="images/experience/verv.png"
             alt="verv"
             :size="70"
           />

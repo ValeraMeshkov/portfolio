@@ -36,7 +36,7 @@
         :class="{ 'hide-img': activeProject === item.id }"
       >
         <img
-          :src="`/_nuxt/assets/images/projects/${item.img}.png`"
+          :src="USE_ASSET(`images/projects/${item.img}.png`)"
           :alt="item.alt"
         />
       </div>
@@ -67,6 +67,7 @@
 
 
 <script setup lang="ts">
+import { USE_ASSET } from '~/helpers/helpers'
 
 import { useAppStore } from '~/store/app'
 const app = useAppStore()

@@ -12,7 +12,7 @@
   >
     <img
       v-if="src"
-      :src="`/_nuxt/assets/images/${src}`"
+      :src="USE_ASSET(src)"
       :alt="alt"
     />
 
@@ -27,6 +27,8 @@
 </template>
 
 <script setup lang="ts">
+import { USE_ASSET } from '~/helpers/helpers'
+
 import { useAppStore } from '~/store/app'
 const app = useAppStore()
 
