@@ -15,10 +15,9 @@
       y="52%"
       dy="0.3em"
       fill="url(#pattern)"
-      font-family="arial"
-      font-size="50px"
+      font-size="35px"
     >
-      JS
+      VM
     </text>
 
     <defs>
