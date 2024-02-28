@@ -33,7 +33,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { useAppStore } from '~/store/app'
 const app = useAppStore()
 
@@ -63,7 +62,13 @@ onMounted(() => {
   window.addEventListener('mousemove', (e: MouseEvent) => {
     app.changeMouseCoordinates(e.clientX, e.clientY)
   });
+
+  window.addEventListener('beforeunload', handleBeforeUnload);
 })
+
+function handleBeforeUnload() {
+  app.changeSettings()
+}
 
 let intervalChangeActiveColor: NodeJS.Timeout | undefined;
 

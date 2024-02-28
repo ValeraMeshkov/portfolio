@@ -38,25 +38,21 @@ export const useAppStore = defineStore({
     },
     changeActiveColor(hue: number): void {
       this.settings.activeColor.hue = hue
-      this.changeSettings(this.settings)
     },
     changeActiveColorAuto(value: boolean): void {
       this.settings.activeColor.auto = value
-      this.changeSettings(this.settings)
     },
     changeTrailCursor(trail: string): void {
       this.settings.trail.cursor = trail
-      this.changeSettings(this.settings)
     },
     changeTrailSize(size: number): void {
       this.settings.trail.size = size
-      this.changeSettings(this.settings)
     },
     loadSettings(object: ISettings): void {
       this.settings = { ...object }
     },
-    changeSettings(object: ISettings): void {
-      localStorage.setItem('settings', JSON.stringify(object))
+    changeSettings(): void {
+      localStorage.setItem('settings', JSON.stringify(this.settings))
     }
   }
 });

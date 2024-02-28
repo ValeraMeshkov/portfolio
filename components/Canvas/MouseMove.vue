@@ -97,8 +97,9 @@ onMounted(() => {
 
   animate();
 
-  function createNewParticles(x: number, y: number) {
-    for (let i = 0; i < 5; i++) {
+  function createNewParticles(x: number, y: number, number?: number) {
+    const count = number || 5
+    for (let i = 0; i < count; i++) {
       bubbles.push(new Bubble(x, y));
     }
   }
@@ -108,6 +109,38 @@ onMounted(() => {
     value => createNewParticles(value.x, value.y),
     { deep: true }
   )
+
+
+  function loadFirstAnimation() {
+    const wStep = 20 + 55
+    const hStep = 120 + 55
+
+    const w = window.innerWidth - wStep;
+    const h = window.innerHeight - hStep;
+
+    const cX = w / 100;
+    const cY = h / 100;
+
+    let x = 0;
+    let y = window.innerHeight;
+
+    function animate() {
+      createNewParticles(x, y, 15);
+      x += cX;
+      y -= cY;
+
+      if (x > w && y < hStep) {
+        cancelAnimationFrame(animationId);
+      } else {
+        animationId = requestAnimationFrame(animate);
+      }
+    }
+
+    let animationId = requestAnimationFrame(animate);
+  }
+
+  loadFirstAnimation();
+
 
   // check scroll content and create bubles
   window.addEventListener('scroll', (e: Event) => {
