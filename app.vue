@@ -20,6 +20,11 @@
       v-else
       class="settings"
     >
+      <div
+        class="pulse"
+        :style="{ 'border': `2px solid ${app.getActiveColor}` }"
+      ></div>
+
       <ButtonIcon
         icon-type="fab"
         icon-name="gripfire"
@@ -104,6 +109,33 @@ watch(
     right: 20px;
     top: 120px;
     z-index: 1000;
+
+    .pulse {
+      position: absolute;
+      opacity: 0;
+      left: -10px;
+      right: -10px;
+      top: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      animation: pulse 2.5s linear infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+    }
   }
 }
 </style>
