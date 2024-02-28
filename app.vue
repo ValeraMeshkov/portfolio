@@ -69,27 +69,29 @@ onMounted(() => {
   });
 
   window.addEventListener('beforeunload', handleBeforeUnload);
+
+  if (app.settings.activeColor.auto) {
+    changeActiveColor(true)
+  }
 })
 
 function handleBeforeUnload() {
   app.changeSettings()
 }
 
-let intervalChangeActiveColor: NodeJS.Timeout | undefined;
-
-if (app.settings.activeColor.auto) {
-  changeActiveColor(true)
-}
+let intervalChangeActiveColor: number;
 
 function changeActiveColor(value: boolean): void {
   if (value) {
-    intervalChangeActiveColor = setInterval(() => {
-      let hue = app.settings.activeColor.hue
+    let hue = app.settings.activeColor.hue
+    function animate() {
       if (hue >= 360) hue = 0
-      app.changeActiveColor(hue += 0.25)
-    }, 50)
+      app.changeActiveColor(hue += 0.1)
+      intervalChangeActiveColor = requestAnimationFrame(animate);
+    }
+    animate();
   } else {
-    clearInterval(intervalChangeActiveColor)
+    cancelAnimationFrame(intervalChangeActiveColor);
   }
 }
 

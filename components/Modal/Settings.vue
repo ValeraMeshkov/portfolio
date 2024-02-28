@@ -8,22 +8,29 @@
     }"
   >
     <div class="color-picker">
-      <color-picker
-        v-bind="app.settings.activeColor"
-        @input="changeColorPicker"
-      ></color-picker>
+      <div class="picker-wrapper">
+        <color-picker
+          class="picker"
+          v-bind="app.settings.activeColor"
+        ></color-picker>
 
-      <div
-        class="arrow"
-        :style="{ 'transform': `rotate(${app.settings.activeColor.hue}deg)` }"
-      >
-        <ButtonIcon
-          icon-type="fas"
-          icon-name="arrows-rotate"
-          :size="75"
-          :isGrey="!app.settings.activeColor.auto"
-          @clickButton="changeActiveColorAuto"
-        />
+        <color-picker
+          class="picker invisible"
+          @input="changeColorPicker"
+        ></color-picker>
+
+        <div
+          class="arrow"
+          :style="{ 'transform': `rotate(${app.settings.activeColor.hue}deg)` }"
+        >
+          <ButtonIcon
+            icon-type="fas"
+            icon-name="arrows-rotate"
+            :size="75"
+            :isGrey="!app.settings.activeColor.auto"
+            @clickButton="changeActiveColorAuto"
+          />
+        </div>
       </div>
     </div>
 
@@ -98,7 +105,14 @@ const getStylesTrail = computed(() => ({
 }))
 
 const changeSliderSize = (value: number) => app.changeTrailSize(value)
-const changeColorPicker = (hue: number) => app.changeActiveColor(hue)
+const changeColorPicker = (hue: number) => {
+  app.changeActiveColor(hue)
+
+  if (app.settings.activeColor.auto) {
+    app.changeActiveColorAuto(false)
+    nextTick(() => { app.changeActiveColorAuto(true) })
+  }
+}
 const changeActiveColorAuto = () => app.changeActiveColorAuto(!app.settings.activeColor.auto)
 const changeCursorTrail = (trail: string) => app.changeTrailCursor(trail)
 
@@ -114,7 +128,6 @@ const closeModal = () => emit('close')
 
   .slider-tooltip {
     display: none;
-
   }
 
   .slider-base {
@@ -163,6 +176,25 @@ const closeModal = () => emit('close')
     justify-content: center;
     padding: 10px;
     transform: scale(0.9);
+
+    .picker-wrapper {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      justify-content: center;
+      width: 300px;
+      height: 300px;
+
+      .picker {
+        position: absolute;
+      }
+
+      .invisible {
+        opacity: 0;
+      }
+    }
+
 
     .arrow {
       position: absolute;
