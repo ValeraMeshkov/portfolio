@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { ISettings, IStoreApp } from "~/types/store/app"
+import { HSL_TO_RGB } from '~/helpers/helpers'
 
 export const useAppStore = defineStore({
   id: "app-store",
@@ -18,7 +19,7 @@ export const useAppStore = defineStore({
           auto: true
         },
         trail: {
-          cursor: 'star',
+          cursor: 'square',
           size: 15
         },
       },
@@ -29,7 +30,9 @@ export const useAppStore = defineStore({
       const h = state.settings.activeColor.hue
       const s = state.settings.activeColor.saturation
       const l = state.settings.activeColor.luminosity
-      return `hsl(${h} ${s} ${l})`
+
+      // return `hsl(${h} ${s} ${l})`
+      return HSL_TO_RGB(h, s, l)
     },
   },
   actions: {
