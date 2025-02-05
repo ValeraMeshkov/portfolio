@@ -30,8 +30,16 @@
 
         <TextAccent :text="t('experience.sendnow.text1')" /> -
 
-        <NuxtLink :href="COMPANY_SENDNOW" target="_blank">
-          <TextBorder :text="t('experience.sendnow.linkMain')" :accent="true" />
+        <NuxtLink
+          :href="COMPANY_SENDNOW"
+          target="_blank"
+          class="link-wrapper pointer-events-auto"
+        >
+          <TextBorder
+            class="pointer-events-auto"
+            :text="t('experience.sendnow.linkMain')"
+            :accent="true"
+          />
         </NuxtLink>
 
         <span>{{ t("experience.sendnow.text2") }}</span>

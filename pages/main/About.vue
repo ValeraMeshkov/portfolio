@@ -8,7 +8,11 @@
 
     <div class="block">
       <h1>
-        <TextBorder text="About Me" :show-border="true" :is-title="true" />
+        <TextBorder
+          :text="t('about.aboutMe')"
+          :show-border="true"
+          :is-title="true"
+        />
       </h1>
 
       <p class="description">

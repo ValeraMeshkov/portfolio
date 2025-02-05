@@ -4,16 +4,9 @@
     @mouseleave="isActive = false"
     class="text-border"
   >
-    <TextAccent
-      v-if="accent"
-      :text="text"
-    />
-    <span
-      v-else
-      class="text"
-      :class="{ 'text-title': isTitle }"
-    >
+    <TextAccent v-if="accent" :text="text" />
 
+    <span v-else class="text" :class="{ 'text-title': isTitle }">
       {{ text }}
     </span>
 
@@ -27,8 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '~/store/app'
-const app = useAppStore()
+import { useAppStore } from "~/store/app";
+const app = useAppStore();
 
 const isActive = ref<boolean>(false);
 
@@ -38,7 +31,6 @@ const props = defineProps<{
   isTitle?: boolean;
   accent?: boolean;
 }>();
-
 </script>
 
 <style lang="scss" scoped>

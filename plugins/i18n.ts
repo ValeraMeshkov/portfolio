@@ -21,9 +21,9 @@ export default defineNuxtPlugin(({ vueApp }) => {
           about: "About",
           aboutMe: "About me",
           text1:
-            "За первые 5 лет моей карьеры в качестве <span class='accent'>Frontend Engineer</span> я имел огромное удовольствие внести значительный вклад в создание интерфейса более чем 15 веб-сайтов, включая платформы маркетинга и электронной коммерции.",
+            "In the first 5 years of my career as a <span class='accent'>Frontend Engineer</span> I have had the great pleasure of significantly contributing to the front-end of over 15 websites including marketing & e-commerce platforms.",
           text2:
-            "<span class='accent'>Внешняя разработка</span> удовлетворяет перетягивание каната между левым и правым полушариями моего мозга. Это действительно стало моей <span class='accent'>страстью</span> - решать проблемы с <span class='accent'>кодом</span> и одновременно создавать произведение <span class='accent'>искусства</span>!",
+            "<span class='accent'>Frontend development</span> satisfies the tug of war between the left & right sides of my brain. It has truly become a <span class='accent'>passion</span> - of mine to solve problems with <span class='accent'>code</span> and create a work of <span class='accent'>art</span> at the same time!",
           skills: "Skills",
           skillsDescription:
             "The main technologies that I <span class='accent'>used</span> while working on projects:",

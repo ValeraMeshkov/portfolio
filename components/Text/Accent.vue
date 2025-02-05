@@ -1,5 +1,5 @@
 <template>
-  <span v-html="processedText"></span>
+  <span class="pointer-events-auto" v-html="processedText"></span>
 </template>
 
 <script setup lang="ts">
@@ -19,3 +19,10 @@ const processedText = computed(() => {
   );
 });
 </script>
+
+
+<style lang="scss" scoped>
+.pointer-events-auto {
+  pointer-events: none;
+}
+</style>
