@@ -10,10 +10,7 @@
       <TextAccent text="UI/UX" />.
     </p>
 
-    <NuxtLink
-      class="button"
-      to="#about"
-    >
+    <NuxtLink class="button" to="#about">
       <ButtonText text="About me" />
     </NuxtLink>
   </div>
@@ -36,13 +33,13 @@
     width: fit-content;
     margin-top: 15px;
     text-align: center;
-    font-size: clamp(24px, 3rem, 48px)
+    font-size: clamp(24px, 3rem, 48px);
   }
 
   .description {
     text-align: center;
     margin-top: 10px;
-    font-size: clamp(16px, 2rem, 24px)
+    font-size: clamp(16px, 2rem, 24px);
   }
 
   .button {
