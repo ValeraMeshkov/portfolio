@@ -1,12 +1,15 @@
 name: Deploy to GitHub Pages
 
-# Определяем события, которые запускают workflow
 on:
-  # Запуск при push в ветку main
   push:
     branches: ["main"]
-  # Добавим возможность запуска вручную
   workflow_dispatch:
+
+# Установим необходимые разрешения
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -15,14 +18,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false # Добавляем эту строку
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "npm" # Добавляем кэширование для ускорения сборки
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Используем ci вместо install для более надежной установки
 
       - name: Generate static files
         run: npm run generate
@@ -32,3 +38,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          force_orphan: true # Добавляем эту строку для чистой истории в gh-pages
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
