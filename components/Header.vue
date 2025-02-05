@@ -2,125 +2,105 @@
   <header
     class="header"
     :style="{
-      'box-shadow': `5px -5px 15px ${app.getActiveColor}`
+      'box-shadow': `5px -5px 15px ${app.getActiveColor}`,
     }"
   >
-    <NuxtLink
-      to="/"
-      v-if="!showMobileMenu"
-    >
+    <NuxtLink to="/" v-if="!showMobileMenu">
       <ButtonAnimation />
     </NuxtLink>
 
     <div class="nav">
-      <NuxtLink
-        v-if="!showMobileMenu"
-        to="#about"
-        class="link"
-      >
-        <TextBorder text="About" />
+      <NuxtLink v-if="!showMobileMenu" to="#about" class="link">
+        <TextBorder :text="t('header.about')" />
+      </NuxtLink>
+
+      <NuxtLink v-if="!showMobileMenu" to="#experience" class="link">
+        <TextBorder :text="t('header.experience')" />
+      </NuxtLink>
+
+      <NuxtLink v-if="!showMobileMenu" to="#projects" class="link">
+        <TextBorder :text="t('header.projects')" />
+      </NuxtLink>
+
+      <NuxtLink v-if="showMobileMenu" to="#about" class="link">
+        <ButtonIcon icon-type="fas" icon-name="user" />
+      </NuxtLink>
+
+      <NuxtLink v-if="showMobileMenu" to="#experience" class="link">
+        <ButtonIcon icon-type="fas" icon-name="list" />
+      </NuxtLink>
+
+      <NuxtLink v-if="showMobileMenu" to="#projects" class="link">
+        <ButtonIcon icon-type="fab" icon-name="stack-overflow" />
+      </NuxtLink>
+
+      <NuxtLink :href="MY_TELEGRAM" target="_blank" class="link">
+        <ButtonIcon icon-type="fab" icon-name="telegram" :scale="1.5" />
+      </NuxtLink>
+
+      <NuxtLink :href="MY_LINKEDIN" target="_blank" class="link">
+        <ButtonIcon icon-type="fab" icon-name="linkedin-in" />
       </NuxtLink>
 
       <NuxtLink
         v-if="!showMobileMenu"
-        to="#experience"
-        class="link"
-      >
-        <TextBorder text="Experience" />
-      </NuxtLink>
-
-      <NuxtLink
-        v-if="!showMobileMenu"
-        to="#projects"
-        class="link"
-      >
-        <TextBorder text="My projects" />
-      </NuxtLink>
-
-
-      <NuxtLink
-        v-if="showMobileMenu"
-        to="#about"
-        class="link"
-      >
-        <ButtonIcon
-          icon-type="fas"
-          icon-name="user"
-        />
-      </NuxtLink>
-
-      <NuxtLink
-        v-if="showMobileMenu"
-        to="#experience"
-        class="link"
-      >
-        <ButtonIcon
-          icon-type="fas"
-          icon-name="list"
-        />
-      </NuxtLink>
-
-      <NuxtLink
-        v-if="showMobileMenu"
-        to="#projects"
-        class="link"
-      >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="stack-overflow"
-        />
-      </NuxtLink>
-
-      <NuxtLink
         :href="MY_GITHUB"
         target="_blank"
         class="link"
       >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="github"
-          :scale="1.5"
-        />
+        <ButtonIcon icon-type="fab" icon-name="github" :scale="1.5" />
       </NuxtLink>
 
-      <NuxtLink
-        :href="MY_LINKEDIN"
-        target="_blank"
-        class="link"
-      >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="linkedin-in"
-        />
-      </NuxtLink>
+      <div
+        v-if="!showMobileMenu"
+        class="vLine"
+        :style="{
+          borderLeft: `1px solid ${app.getActiveColor}`,
+          'box-shadow': `-2px 2px 15px ${app.getActiveColor}`,
+        }"
+      ></div>
 
-      <NuxtLink
-        :href="MY_TELEGRAM"
-        target="_blank"
-        class="link"
+      <div
+        v-if="currentLocale === 'ru'"
+        class="lang"
+        @click="switchLanguage('en')"
       >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="telegram"
-          :scale="1.5"
-        />
-      </NuxtLink>
+        <ButtonIcon text="RU" :scale="1.5" />
+      </div>
+
+      <div v-else class="lang" @click="switchLanguage('ru')">
+        <ButtonIcon text="EN" :scale="1.5" />
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
 
-import { MY_LINKEDIN, MY_GITHUB, MY_TELEGRAM } from '~/constants/constants';
+import { useAppStore } from "~/store/app";
 
-import { useAppStore } from '~/store/app'
-const app = useAppStore()
+import { MY_LINKEDIN, MY_GITHUB, MY_TELEGRAM } from "~/constants/constants";
 
+const { t, locale } = useI18n();
+const app = useAppStore();
 
 const props = defineProps<{
   showMobileMenu: boolean;
 }>();
 
+const switchLanguage = (lang: string) => {
+  locale.value = lang;
+  localStorage.setItem("userLocale", lang);
+};
+
+const currentLocale = computed(() => locale.value);
+const availableLocales = computed(() => {
+  return [
+    { code: "en", name: "EN" },
+    { code: "ru", name: "RU" },
+  ];
+});
 const emit = defineEmits<{
   (e: "close"): void;
   (e: "open"): void;
@@ -157,6 +137,12 @@ const emit = defineEmits<{
         margin-left: 5px;
       }
     }
+  }
+
+  .vLine {
+    width: 1px;
+    height: 50px;
+    margin: 0 20px;
   }
 
   .logo {

@@ -1,22 +1,16 @@
 <template>
-  <div
-    id="projects"
-    class="section-projects"
-  >
+  <div id="projects" class="section-projects">
     <div class="header">
-
       <h1 class="title">
         <TextBorder
-          text="Some Work"
+          :text="t('projects.someWork')"
           :show-border="true"
           :is-title="true"
         />
       </h1>
 
       <p class="description">
-        While most of my signifcant work has been done for employers and is
-        not displayed here, here are some
-        projects that live in my Github.
+        {{ t("projects.description") }}
       </p>
     </div>
 
@@ -26,15 +20,12 @@
       :key="index"
       :style="{
         border: `1px solid ${app.getActiveColor}`,
-        'box-shadow': `-3px 3px 15px ${app.getActiveColor}`
+        'box-shadow': `-3px 3px 15px ${app.getActiveColor}`,
       }"
       @mousemove="activeProject = item.id"
       @mouseleave="activeProject = null"
     >
-      <div
-        class="img"
-        :class="{ 'hide-img': activeProject === item.id }"
-      >
+      <div class="img" :class="{ 'hide-img': activeProject === item.id }">
         <img
           :src="USE_ASSET(`images/projects/${item.img}.png`)"
           :alt="item.alt"
@@ -45,18 +36,16 @@
         class="content"
         :class="{ 'show-content': activeProject === item.id }"
       >
-        <div
-          class="title"
-          :style="{ 'color': app.getActiveColor }"
-        >{{ item.name }}</div>
+        <div class="title" :style="{ color: app.getActiveColor }">
+          {{ item.name }}
+        </div>
 
-        <div class="description">{{ `( ${item.technologies.join(', ')} )` }}</div>
+        <div class="description">
+          {{ `( ${item.technologies.join(", ")} )` }}
+        </div>
 
         <div class="buttons">
-          <NuxtLink
-            :href="item.linkCode"
-            target="_blank"
-          >
+          <NuxtLink :href="item.linkCode" target="_blank">
             <ButtonText text="View Code" />
           </NuxtLink>
         </div>
@@ -67,16 +56,16 @@
 
 
 <script setup lang="ts">
-import { USE_ASSET } from '~/helpers/helpers'
+import { useI18n } from "vue-i18n";
+import { USE_ASSET } from "~/helpers/helpers";
+import { useAppStore } from "~/store/app";
+import { useProjectsStore } from "~/store/projects";
 
-import { useAppStore } from '~/store/app'
-const app = useAppStore()
+const { t } = useI18n();
+const project = useProjectsStore();
+const app = useAppStore();
 
-import { useProjectsStore } from '~/store/projects';
-const project = useProjectsStore()
-
-const activeProject = ref<number | null>(null)
-
+const activeProject = ref<number | null>(null);
 </script>  
 
 <style lang="scss" scoped>
@@ -165,7 +154,7 @@ const activeProject = ref<number | null>(null)
   .title {
     width: 100%;
     text-align: center;
-    font-size: clamp(24px, 3rem, 48px)
+    font-size: clamp(24px, 3rem, 48px);
   }
 
   .description {

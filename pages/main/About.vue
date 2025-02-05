@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="about"
-    class="section-about"
-  >
+  <div id="about" class="section-about">
     <img
       src="@/assets/images/brain.png"
       class="brain"
@@ -11,45 +8,29 @@
 
     <div class="block">
       <h1>
-        <TextBorder
-          text="About Me"
-          :show-border="true"
-          :is-title="true"
-        />
+        <TextBorder text="About Me" :show-border="true" :is-title="true" />
       </h1>
 
       <p class="description">
-        In the first 5 years of my career as a
-        <TextAccent text="Frontend Engineer" />,
-        I have had the great pleasure of significantly contributing to the front-end of over
-        15 websites including marketing & e-commerce platforms.
+        <TextAccent :text="t('about.text1')" />
         <br />
-        <TextAccent text="Frontend development" />
-        satisfies the tug of war between the left & right sides of my brain. It has truly become a
-        <TextAccent text="passion" /> of mine to solve problems with
-        <TextAccent text="code" /> and create a work of
-        <TextAccent text="art" /> at the same time!
+        <TextAccent :text="t('about.text2')" />
       </p>
 
       <h1 class="title">
         <TextBorder
-          text="Skills"
+          :text="t('about.skills')"
           :show-border="true"
           :is-title="true"
         />
       </h1>
 
       <p class="description">
-        The main technologies that I
-        <TextAccent text="used" /> while working on projects:
+        <TextAccent :text="t('about.skillsDescription')" />
       </p>
 
       <div class="skills">
-        <div
-          v-for="skill, index in skillsIcons"
-          :key="index"
-          class="skill"
-        >
+        <div v-for="(skill, index) in skillsIcons" :key="index" class="skill">
           <ImageBorderText
             :img="`images/skills/${skill.name}.png`"
             :text="skill.title"
@@ -57,11 +38,8 @@
         </div>
       </div>
 
-      <NuxtLink
-        class="button"
-        to="#experience"
-      >
-        <ButtonText text="See Experience" />
+      <NuxtLink class="button" to="#experience">
+        <ButtonText :text="t('about.experience')" />
       </NuxtLink>
     </div>
   </div>
@@ -69,10 +47,12 @@
 
 
 <script setup lang="ts">
-import { skillsIcons } from "~/constants/constants"
+import { skillsIcons } from "~/constants/constants";
+import { useAppStore } from "~/store/app";
+import { useI18n } from "vue-i18n";
 
-import { useAppStore } from '~/store/app'
-const app = useAppStore()
+const app = useAppStore();
+const { t } = useI18n();
 </script>  
 
 <style lang="scss" scoped>
@@ -121,13 +101,13 @@ const app = useAppStore()
     width: fit-content;
     margin-top: 15px;
     text-align: center;
-    font-size: clamp(24px, 3rem, 48px)
+    font-size: clamp(24px, 3rem, 48px);
   }
 
   .description {
     text-align: center;
     margin-top: 10px;
-    font-size: clamp(16px, 2rem, 24px)
+    font-size: clamp(16px, 2rem, 24px);
   }
 
   .button {

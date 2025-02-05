@@ -8,20 +8,17 @@
       <img :src="USE_ASSET(img)" />
     </div>
 
-    <div
-      class="border"
-      :class="{ 'border-active': isActive }"
-    >
+    <div class="border" :class="{ 'border-active': isActive }">
       <TextAccent :text="text" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { USE_ASSET } from '~/helpers/helpers'
+import { USE_ASSET } from "~/helpers/helpers";
 
-import { useAppStore } from '~/store/app'
-const app = useAppStore()
+import { useAppStore } from "~/store/app";
+const app = useAppStore();
 
 const isActive = ref<boolean>(false);
 
@@ -31,7 +28,6 @@ const props = defineProps<{
   showBorder?: boolean;
   isTitle?: boolean;
 }>();
-
 </script>
 
 <style lang="scss" scoped>

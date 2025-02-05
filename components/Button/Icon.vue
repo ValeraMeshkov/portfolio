@@ -6,20 +6,18 @@
       border: `1px solid ${app.getActiveColor}`,
       'box-shadow': `-2px 2px 15px ${app.getActiveColor}`,
       width: size ? `${size}px` : '50px',
-      height: size ? `${size}px` : '50px'
+      height: size ? `${size}px` : '50px',
     }"
     @click="emit('clickButton')"
   >
-    <img
-      v-if="src"
-      :src="USE_ASSET(src)"
-      :alt="alt"
-    />
+    <div class="text" v-if="text">{{ text }}</div>
+
+    <img v-else-if="src" :src="USE_ASSET(src)" :alt="alt" />
 
     <FontAwesomeIcon
       v-else
       :style="{
-        'transform': scale ? `scale(${scale})` : 1
+        transform: scale ? `scale(${scale})` : 1,
       }"
       :icon="[props.iconType, props.iconName]"
     />
@@ -27,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { USE_ASSET } from '~/helpers/helpers'
+import { USE_ASSET } from "~/helpers/helpers";
 
-import { useAppStore } from '~/store/app'
-const app = useAppStore()
+import { useAppStore } from "~/store/app";
+const app = useAppStore();
 
 const props = defineProps<{
   iconType?: string;
@@ -39,7 +37,8 @@ const props = defineProps<{
   alt?: string;
   size?: number;
   scale?: number;
-  isGrey?: boolean
+  isGrey?: boolean;
+  text?: string;
 }>();
 
 const emit = defineEmits<{
@@ -50,6 +49,8 @@ const emit = defineEmits<{
 <style lang="scss" scoped>
 .button-icon {
   display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   cursor: pointer;
   z-index: 10;
@@ -61,9 +62,14 @@ const emit = defineEmits<{
     opacity: 0.8;
   }
 
+  .text {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
   img {
     border-radius: 50%;
-    transform: scale(1.2)
+    transform: scale(1.2);
   }
 
   svg {

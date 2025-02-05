@@ -3,7 +3,8 @@
 export default defineNuxtConfig({
   plugins: [
     "plugins/fontawesome.ts",
-    "plugins/radialColorPickerPlugin.ts"
+    "plugins/radialColorPickerPlugin.ts",
+    "plugins/i18n.ts",
   ],
   modules: ["@pinia/nuxt", "nuxt-svgo"],
   build: {
@@ -15,7 +16,7 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: "/portfolio/",
-    buildAssetsDir: 'assets',
+    buildAssetsDir: "assets",
     head: {
       meta: [
         {
@@ -29,9 +30,7 @@ export default defineNuxtConfig({
       script: [],
       style: [],
       link: [],
-      noscript: [
-        { children: "Javascript is required" },
-      ],
+      noscript: [{ children: "Javascript is required" }],
     },
   },
   css: [

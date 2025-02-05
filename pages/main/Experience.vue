@@ -1,7 +1,11 @@
 <template>
   <div id="experience" class="section-experience">
     <h1 class="title">
-      <TextBorder text="Experience" :show-border="true" :is-title="true" />
+      <TextBorder
+        :text="t('experience.experience')"
+        :show-border="true"
+        :is-title="true"
+      />
     </h1>
 
     <div class="block">
@@ -14,36 +18,35 @@
           />
         </NuxtLink>
 
-        <TextAccent class="text" text="Sendnow" />
+        <TextAccent class="text" :text="t('experience.sendnow.name')" />
 
-        <p class="description">( July-2024 - March-2025 )</p>
+        <p class="description">{{ t("experience.sendnow.time") }}</p>
       </h1>
 
       <p class="description">
-        <span>Sites where development took place:</span>
+        <span>{{ t("experience.sendnow.title1") }}</span>
+
         <br />
 
-        <TextAccent text="Landing" /> -
+        <TextAccent :text="t('experience.sendnow.text1')" /> -
 
         <NuxtLink :href="COMPANY_SENDNOW" target="_blank">
-          <TextBorder :text="COMPANY_SENDNOW" :accent="true" />
+          <TextBorder :text="t('experience.sendnow.linkMain')" :accent="true" />
         </NuxtLink>
 
-        (company page to attract users);
+        <span>{{ t("experience.sendnow.text2") }}</span>
 
         <br />
 
-        <TextAccent text="Platform" /> -
+        <TextAccent :text="t('experience.sendnow.text3')" /> -
 
         <NuxtLink :href="COMPANY_SENDNOW_PLATFORM" target="_blank">
-          <TextBorder :text="COMPANY_SENDNOW_PLATFORM" :accent="true" />
+          <TextBorder :text="t('experience.sendnow.linkApp')" :accent="true" />
         </NuxtLink>
-        (development and project from scratch, auth, creating transactions for
-        various providers, display of transaction history, user settings);
 
-        <br />
+        <TextAccent class="text" :text="t('experience.sendnow.text4')" />
 
-        Technologies used: <TextAccent text="React, Typescript, Vite" />
+        <TextAccent :text="t('experience.sendnow.technologies')" />
       </p>
     </div>
 
@@ -57,28 +60,27 @@
           />
         </NuxtLink>
 
-        <TextAccent class="text" text="Citronus" />
+        <TextAccent class="text" :text="t('experience.citronus.name')" />
 
-        <p class="description">( January-2024 - July-2024 )</p>
+        <p class="description">{{ t("experience.citronus.time") }}</p>
       </h1>
 
       <p class="description">
-        The site where the development was carried out
+        <span>{{ t("experience.citronus.title1") }}</span>
+
         <NuxtLink :href="COMPANY_CITRONUS" target="_blank">
-          <TextBorder :text="COMPANY_CITRONUS" :accent="true" />
+          <TextBorder
+            :text="t('experience.citronus.linkMain')"
+            :accent="true"
+          />
         </NuxtLink>
 
-        <br />
+        <TextAccent class="text" :text="t('experience.citronus.text1')" />
 
-        Sections:
-        <br />
-        <TextAccent text="Spot-trading" /> (Chart, Order book, Buy, Sell, Open
-        orders, Order history, Trade history, Funds);
-        <br />
-        <TextAccent text="Wallet" /> (Overview, Spot, Funding, Transactions
-        History);
-        <br />
-        Technologies used: <TextAccent text="React, Typescript, Ant Design" />
+        <TextAccent
+          class="text"
+          :text="t('experience.citronus.technologies')"
+        />
       </p>
     </div>
 
@@ -92,42 +94,24 @@
           />
         </NuxtLink>
 
-        <TextAccent class="text" text="Letit" />
+        <TextAccent class="text" :text="t('experience.letit.name')" />
 
-        <p class="description">( December-2022 - January-2024 )</p>
+        <p class="description">{{ t("experience.letit.time") }}</p>
       </h1>
 
       <p class="description">
-        The site where the development was carried out
+        <span>{{ t("experience.letit.title1") }}</span>
+
         <NuxtLink :href="COMPANY_LETIT_PROJECT" target="_blank">
-          <TextBorder :text="COMPANY_LETIT_PROJECT" :accent="true" />
+          <TextBorder :text="t('experience.letit.linkMain')" :accent="true" />
         </NuxtLink>
 
-        <br />
-        Sections:
-        <br />
-        <TextAccent text="Admin" /> (information about users, transactions,
-        referral bonuses);
-        <br />
-        <TextAccent text="Dashboard" /> (calendar with history of trades and
-        charts);
-        <br />
-        <TextAccent text="Trader's diary" />(display of position history,
-        display of open positions);
-        <br />
-        <TextAccent text="Positions" />(display of transactions, fundings on the
-        chart);
-        <br />
-        <TextAccent text="Trading terminal" /> purchase and sale of assets,
-        displaying charts (drawing entry and exit points for trades);
-        <br />
-        <TextAccent text="Wallets, balances" /> (spots, futures) from the
-        exchanges;
-        <br />
-        <TextAccent text="Referral system" />;
-        <br />
-        Technologies used:
-        <TextAccent text="Vue, Typescript, nuxt, web3, crypto-js" />
+        <TextAccent class="text" :text="t('experience.letit.text1')" />
+
+        <TextAccent
+          class="text"
+          :text="t('experience.citronus.technologies')"
+        />
       </p>
     </div>
 
@@ -137,21 +121,13 @@
           <ButtonIcon src="images/experience/bsl.png" alt="bsl" :size="70" />
         </NuxtLink>
 
-        <TextAccent class="text" text="Bsl" />
+        <TextAccent class="text" :text="t('experience.bsl.name')" />
 
-        <p class="description">( September-2019 - December-2022 )</p>
+        <p class="description">{{ t("experience.bsl.time") }}</p>
       </h1>
 
       <p class="description">
-        Worked with
-        <TextAccent text="large" />
-        projects ( Worldskills, Pike, Netfi, Delta, МОК линзы, Hoff, Магнит,
-        Много лосося, Eyefood)
-        <br />
-        Gained
-        <TextAccent text="extensive" /> experience working with different
-        <TextAccent text="teams" />, different
-        <TextAccent text="technologies" /> and <TextAccent text="libraries" />.
+        <TextAccent class="text" :text="t('experience.bsl.text1')" />
       </p>
     </div>
 
@@ -161,26 +137,24 @@
           <ButtonIcon src="images/experience/verv.png" alt="verv" :size="70" />
         </NuxtLink>
 
-        <TextAccent class="text" text="Verv" />
+        <TextAccent class="text" :text="t('experience.verv.name')" />
 
-        <p class="description">( August-2018 - August-2019 )</p>
+        <p class="description">{{ t("experience.verv.time") }}</p>
       </h1>
 
       <p class="description">
-        Actively participated in the
-        <TextAccent text="development" />
-        of content for website and the Running, Walking, Meditate, Sleep
-        applications
+        <TextAccent class="text" :text="t('experience.verv.text1')" />
       </p>
     </div>
 
     <NuxtLink class="button" to="#projects">
-      <ButtonText text="See Projects" />
+      <ButtonText :text="t('experience.projects')" />
     </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
 import {
   COMPANY_VERV,
   COMPANY_BSL,
@@ -190,6 +164,8 @@ import {
   COMPANY_SENDNOW,
   COMPANY_SENDNOW_PLATFORM,
 } from "~/constants/constants";
+
+const { t } = useI18n();
 </script>  
 
 <style lang="scss" scoped>
@@ -225,6 +201,7 @@ import {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    margin-top: 40px !important;
 
     .title {
       display: flex;

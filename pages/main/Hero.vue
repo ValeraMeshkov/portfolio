@@ -1,23 +1,23 @@
 <template>
   <div class="section-hero">
     <h1 class="title">
-      Hello, I'm
-      <TextAccent text="Valery Meshkov" />.
+      <TextAccent :text="t('hero.titleName')" />
     </h1>
 
     <p class="description">
-      Creative web developer specializing in
-      <TextAccent text="UI/UX" />.
+      <TextAccent :text="t('hero.description')" />
     </p>
 
     <NuxtLink class="button" to="#about">
-      <ButtonText text="About me" />
+      <ButtonText :text="t('about.aboutMe')" />
     </NuxtLink>
   </div>
 </template>
 
 
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 </script>  
 
 <style lang="scss" scoped>

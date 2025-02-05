@@ -1,0 +1,14 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "color": "Color"
+  }
+}

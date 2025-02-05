@@ -1,51 +1,31 @@
 <template>
   <footer>
     <div class="text">
-      Designed & built by
-      <TextAccent text="Valery Meshkov" /> &copy;{{ new Date().getFullYear() }}
+      <TextAccent :text="t('footer.ps')" />
+      &copy;{{ new Date().getFullYear() }}
     </div>
 
     <div class="links">
-      <NuxtLink
-        :href="MY_GITHUB"
-        target="_blank"
-        class="social-link"
-      >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="github"
-          :scale="1.5"
-        />
+      <NuxtLink :href="MY_GITHUB" target="_blank" class="social-link">
+        <ButtonIcon icon-type="fab" icon-name="github" :scale="1.5" />
       </NuxtLink>
 
-      <NuxtLink
-        :href="MY_LINKEDIN"
-        target="_blank"
-        class="social-link"
-      >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="linkedin-in"
-        />
+      <NuxtLink :href="MY_LINKEDIN" target="_blank" class="social-link">
+        <ButtonIcon icon-type="fab" icon-name="linkedin-in" />
       </NuxtLink>
 
-      <NuxtLink
-        :href="MY_TELEGRAM"
-        target="_blank"
-        class="social-link"
-      >
-        <ButtonIcon
-          icon-type="fab"
-          icon-name="telegram"
-          :scale="1.5"
-        />
+      <NuxtLink :href="MY_TELEGRAM" target="_blank" class="social-link">
+        <ButtonIcon icon-type="fab" icon-name="telegram" :scale="1.5" />
       </NuxtLink>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { MY_LINKEDIN, MY_GITHUB, MY_TELEGRAM } from '~/constants/constants';
+import { MY_LINKEDIN, MY_GITHUB, MY_TELEGRAM } from "~/constants/constants";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 </script>
 
 <style lang="scss" scoped>

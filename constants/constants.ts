@@ -37,12 +37,12 @@ export const trails: string[] = [
 ];
 
 export const skillsIcons: { name: string; title: string }[] = [
-  { name: "js", title: "JavaScript" },
-  { name: "ts", title: "Typescript" },
-  { name: "react", title: "React" },
-  { name: "next", title: "Next" },
-  { name: "vue", title: "Vue" },
-  { name: "nuxt", title: "Nuxt" },
-  { name: "sass", title: "Sass" },
-  { name: "node", title: "Node" },
+  { name: "js", title: "<span class='accent'>JavaScript</span>" },
+  { name: "ts", title: "<span class='accent'>Typescript</span>" },
+  { name: "react", title: "<span class='accent'>React</span>" },
+  { name: "next", title: "<span class='accent'>Next</span>" },
+  { name: "vue", title: "<span class='accent'>Vue</span>" },
+  { name: "nuxt", title: "<span class='accent'>Nuxt</span>" },
+  { name: "sass", title: "<span class='accent'>Sass</span>" },
+  { name: "node", title: "<span class='accent'>Node</span>" },
 ];
