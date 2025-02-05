@@ -127,7 +127,7 @@
         <TextAccent text="Referral system" />;
         <br />
         Technologies used:
-        <TextAccent text="Vue, Typescript, nuxt, web3, crypto-js" />
+        <TextAccent text="Vue, Typescript, nuxt, web3, crypto-js, web3" />
       </p>
     </div>
 
