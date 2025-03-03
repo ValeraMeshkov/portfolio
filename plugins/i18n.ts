@@ -58,7 +58,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
           },
           letit: {
             name: "<span class='accent'>Letit</span>",
-            time: "( January-2024 - July-2024 )",
+            time: "( January-2023 - December-2023 )",
             title1: "The site where the development was carried out ",
             linkMain: "<span class='accent'>https://kit.letit.app</span>",
             text1:
@@ -140,7 +140,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
           },
           letit: {
             name: "<span class='accent'>Letit</span>",
-            time: "( Январь 2024 - Июль 2024 )",
+            time: "( Январь 2023 - Декабрь 2023 )",
             title1: "Сайт, над которым велась разработка ",
             linkMain: "<span class='accent'>https://kit.letit.app</span>",
             text1:
